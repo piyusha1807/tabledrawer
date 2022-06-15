@@ -1,0 +1,10 @@
+.data-table {
+  padding: 1rem; 
+  .MuiDataGrid-columnHeader {
+    .MuiDataGrid-columnHeaderTitle {
+      text-transform: uppercase;
+      outline: none;
+      font-weight: bold;
+    }
+  }
+}
