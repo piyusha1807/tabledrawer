@@ -12,6 +12,7 @@ const Posts = () => {
 
   const { data } = useSelector((state: any) => state.postsState);
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [postsId, setPostsId] = useState(null);
 
   useEffect(() => {
     dispatch(fetchPosts());
@@ -62,6 +63,7 @@ const Posts = () => {
   }
 
   const handleView = ({ row }: any) => {
+    setPostsId(row.id);
     dispatch(fetchComments(row.id));
     setOpenDrawer(true);
   };
@@ -80,7 +82,7 @@ const Posts = () => {
       />
       <Drawer anchor="right" open={openDrawer}>
         <Box width="37.56rem">
-          <Comments cancelButton={cancelButton} />
+          <Comments postsId={postsId} cancelButton={cancelButton} />
         </Box>
       </Drawer>
     </div>

@@ -1,10 +1,10 @@
 import React from "react";
-import { Button, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import DataGridTable, { GridColDef } from "../../../components/Table";
 
 const Comments = (props: any) => {
-  const { cancelButton } = props;
+  const { postsId, cancelButton } = props;
 
   const { data } = useSelector((state: any) => state.commentsState);
 
@@ -45,17 +45,19 @@ const Comments = (props: any) => {
   };
 
   return (
-    <>
-      <Button variant="contained" onClick={handleCancelButton}>
-        Cancel
-      </Button>
-      <Typography variant="body1">Comments- Data</Typography>
+    <Box sx={{ p: 2 }}>
+      <Stack direction="row-reverse">
+        <Button variant="contained" onClick={handleCancelButton}>
+          Cancel
+        </Button>
+      </Stack>
+      <Typography variant="body1">Comments of posts - {postsId}</Typography>
       <DataGridTable
         columns={getFormattedHeaders()}
         rows={data || []}
         pageSize={10}
       />
-    </>
+    </Box>
   );
 };
 
