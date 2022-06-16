@@ -1,7 +1,10 @@
 import axios, { AxiosInstance } from "axios";
 
+const username = sessionStorage.getItem("username");
+
 const defaultHeaders = {
   "Content-Type": "application/json",
+  username: username,
 };
 
 class AxiosClass {
