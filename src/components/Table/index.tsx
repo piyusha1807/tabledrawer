@@ -11,10 +11,8 @@ function DataGridTable({
   rows = [],
   columns = [],
   pageSize = 10,
-  rowsPerPageOptions = [10, 20, 30],
-  checkboxSelection = false,
+  rowsPerPageOptions = [10],
   LoadingOverlay,
-  apiRef,
   loading,
   autoHeight,
   ...props
@@ -24,13 +22,10 @@ function DataGridTable({
       <DataGrid
         rows={rows}
         columns={columns}
-        checkboxSelection={checkboxSelection}
-        apiRef={apiRef}
         loading={loading}
-        showCellRightBorder={false}
-        showColumnRightBorder={false}
+        pageSize={pageSize}
+        rowsPerPageOptions={rowsPerPageOptions}
         className="data-table"
-        aria-label="data table"
         autoHeight
         disableSelectionOnClick
         disableColumnMenu
@@ -38,13 +33,6 @@ function DataGridTable({
         components={{
           LoadingOverlay,
           NoRowsOverlay: CustomNoRowsOverlay,
-        }}
-        componentsProps={{
-          pagination: {
-            pageSize,
-            rowsPerPageOptions,
-          },
-          toolbar: { apiRef, columns },
         }}
       />
     </Box>

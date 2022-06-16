@@ -19,20 +19,3 @@ export const fetchPosts = () => async (dispatch: any) => {
     });
   }
 };
-
-// export const fetchPosts = () => {
-//   return (dispatch: any) => {
-//     dispatch({ type: POSTS_REQUEST });
-
-//     getPosts()
-//       .then((response: any) => {
-//         dispatch({ type: POSTS_SUCCESS, response });
-//       })
-//       .catch((error: any) => {
-//         dispatch({
-//           type: POSTS_FAILED,
-//           payload: error,
-//         });
-//       });
-//   };
-// };
